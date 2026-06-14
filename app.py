@@ -169,6 +169,17 @@ def get_connection():
     return mysql.connector.connect(**DB_CONFIG)
 
 # =========================================================
+# DATABASE CONNECTION TEST
+# =========================================================
+
+try:
+    test_conn = mysql.connector.connect(**DB_CONFIG)
+    test_conn.close()
+    st.sidebar.success("✅ Railway Database Connected")
+
+except Exception as e:
+    st.sidebar.error(f"❌ DB Error: {e}")
+# =========================================================
 # GENERIC FUNCTIONS
 # =========================================================
 def load_data(query):
