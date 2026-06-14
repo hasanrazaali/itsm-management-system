@@ -28,8 +28,6 @@ from datetime import datetime
 
 import streamlit as st
 
-st.set_page_config(page_title="ITSM Test")
-st.write("🚀 App Started Successfully")
 
 # =========================================================
 # LOAD ENV VARIABLES
@@ -44,6 +42,8 @@ st.set_page_config(
     page_icon="🛠️",
     layout="wide"
 )
+
+st.write("🚀 App Started Successfully")
 
 # =========================================================
 # CUSTOM CSS
@@ -160,12 +160,21 @@ button[kind="secondary"]{
 # =========================================================
 DB_CONFIG = {
     "host": os.getenv("MYSQLHOST"),
-    "port": int(os.getenv("MYSQLPORT")),
+    "port": int(os.getenv("MYSQLPORT", "3306")),
     "user": os.getenv("MYSQLUSER"),
     "password": os.getenv("MYSQLPASSWORD"),
     "database": os.getenv("MYSQLDATABASE")
-
 }
+
+st.sidebar.write("App Started")
+
+try:
+    conn = mysql.connector.connect(**DB_CONFIG)
+    conn.close()
+    st.sidebar.success("✅ Railway Database Connected")
+
+except Exception as e:
+    st.sidebar.error(f"❌ DB Error: {str(e)}")
 
 # =========================================================
 # DATABASE CONNECTION
