@@ -1,0 +1,13 @@
+altair
+pandas
+streamlit
+gradio
+pandas
+sqlalchemy
+mysql-connector-python
+plotly
+matplotlib
+scikit-learn
+numpy
+python-dotenv
+openpyxl
