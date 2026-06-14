@@ -1,10 +1,19 @@
+---
+title: ITSM Database
+emoji: 📊
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
+
 # ITSM Analytics System
 
 An AI-powered IT Service Management (ITSM) Analytics Platform built using:
 
 - MySQL
 - Python
-- Gradio
+- Streamlit
 - Plotly
 - Hugging Face Spaces
 
